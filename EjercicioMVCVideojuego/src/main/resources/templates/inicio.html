@@ -31,12 +31,14 @@ de los datos que me envie el controlador -->
 	
 	<h2 th:text="${v} ? ('ID: ' + ${v.id} + ' - ' + ${v.nombre} + ' - ' + ${v.compania}): 'No existe el videojuego'"></h2>
 	
-	     <h2>Lista de Videojuegos:</h2>
+	    <h2>Lista de Videojuegos:</h2>
 	    <h3 style="color:red" th:each="valor : ${lista}">
     	<span th:text="${valor.nombre}"></span>
-    	-
+    	
     	<span th:text="${valor.compania}"></span>
 	</h3>
+	
+	
 	     
 	   
 </body>

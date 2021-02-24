@@ -1,6 +1,6 @@
 package com.mvc.controlador;
 
-import java.util.ArrayList;
+
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.mvc.modelo.entidad.Usuario;
 import com.mvc.modelo.entidad.Videojuego;
 import com.mvc.modelo.negocio.GestorUsuario;
+import com.mvc.modelo.negocio.GestorVideojuego;
 import com.mvc.modelo.persistencia.DaoUsuario;
 
 //Esta anotacion sirve para dar de alta un objeto controlador
@@ -31,6 +32,9 @@ public class ControladorUsuario {
 
 	@Autowired
 	private GestorUsuario gestorUsuario;
+	
+	@Autowired
+	private GestorVideojuego gestorVideojuego;
 	
 	
 	//Si la pagina web nos manda los datos por GET, entonces
@@ -70,6 +74,10 @@ public class ControladorUsuario {
 			//todos los datos que queramos mandar a 
 			//la vista
 			model.addAttribute("nombreUsuario", nombre);
+			
+			List<Videojuego> listaV = gestorVideojuego.obtenerListaVideojuegos();
+
+            model.addAttribute("lista", listaV);
 
 			//vamos a inicio.html
 			return "inicio";
