@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+	<!-- 
+	Dentro del contexto podemos crear todos los objetos que queramos
+	y podemos alterar sus propiedades(atributos) en este fichero
+	xml. Esto podremos hacerlo siempre y cuando tenga estructura
+	JavaBean
+	 -->
+  	  
+	 <bean id="habitacion1" class="entidades.Habitacion">
+	 	<property name="m2" value="50"></property>
+	 	<property name="tipoHabitacion" value="Salon"></property>
+	 	
+	 </bean>
+	 
+	 <bean id="habitacion2" class="entidades.Habitacion">
+	 	<property name="m2" value="20"></property>
+	 	<property name="tipoHabitacion" value="Cocina"></property>
+	 	
+	 </bean>
+	 
+	 <bean id="direccion1" class="entidades.Direccion">
+	 	<property name="nombreVia" value="Calle"></property>
+	 	<property name="tipoVia" value="Gran Via"></property>
+	 	<property name="cp" value="28100"></property>
+	 </bean>
+	 
+	 <bean id="persona1" class="entidades.Persona">
+	 	<property name="nombre" value="Paco"></property>
+	 	<property name="edad" value="30"></property>
+	 	<property name="dni" value="123456789F"></property>
+	 </bean>
+	 
+	 <bean id="inquilino1" class="entidades.Persona">
+	 	<property name="nombre" value="Alberto"></property>
+	 	<property name="edad" value="2"></property>
+	 	<property name="dni" value="005556789F"></property>
+	 </bean>
+	 
+	 <bean id="inquilino2" class="entidades.Persona">
+	 	<property name="nombre" value="Juan"></property>
+	 	<property name="edad" value="25"></property>
+	 	<property name="dni" value="15223789F"></property>
+	 </bean>
+ 
+	 
+	 
+	 <bean id="listaHabitaciones" class="java.util.LinkedList" scope="singleton">
+	 	<constructor-arg>
+	 		<list>
+				<ref bean="habitacion1"/>
+				<ref bean="habitacion2"/>
+			</list>
+	 	</constructor-arg>
+	 </bean>
+	 
+	 <bean id="listaInquilinos" class="java.util.LinkedList" scope="singleton">
+	 <constructor-arg>
+	 		<list>
+				<ref bean="inquilino1"/>
+				<ref bean="inquilino2"/>
+			</list>
+	 	</constructor-arg>
+	 </bean>
+	 
+	 
+	 <bean id="casa1" class="entidades.Casa">
+	 	<property name="propietario" ref="persona1"></property>
+	 	<property name="precio" value="200000"></property>
+	 	<property name="direccion" ref="direccion1"></property>
+	 	<property name="listaHabitaciones" ref="listaHabitaciones"></property>
+	 	<property name="listaInquilinos" ref="listaInquilinos"></property>
+	 </bean>
+
+</beans>

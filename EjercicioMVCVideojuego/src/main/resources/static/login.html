@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<!-- A tener en cuenta
+		form action, sera la URL que vamos a buscar a nuestro
+		controlador para poder entrar a nuestra app
+		
+		form method, el metodo o verbo http que vamos a usar
+		
+		input name, es el parametro que le va a enviar el 
+		formulario al servidor. El parametro sera "usuario"
+		y "pass" y el valor sera el que escriba el usuario
+		en las cajas de texto
+	 -->
+	<form action="doLogin" method="post">
+	Nombre: <input type="text" name="nombre_usuario"/>
+	<br/>
+	<br/>
+	Password: <input type="password" name="pass"/>
+	<br/>
+	<input type="submit" value="Enviar"/>
+	</form>
+</body>
+</html>
